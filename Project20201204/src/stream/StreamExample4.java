@@ -44,15 +44,8 @@ public class StreamExample4 {
 		
 		//2.선적부서:급여합계(평균)
 		System.out.println("선적부서의 급여합계>>>");
-		double avg = list.stream().filter(t-> t.getDepartmentId()==40)
-		.mapToInt(new ToIntFunction<EmployeeVO>() {
-
-			@Override
-			public int applyAsInt(EmployeeVO e) {
-				return e.getSalary() ;
-			}
-			
-		}).average().getAsDouble();
+		double avg = list.stream().filter(t-> t.getDepartmentId()==50)
+		.mapToInt(e-> e.getSalary()).average().getAsDouble();
 		System.out.println("급여합계: "+avg);
 		
 		System.out.println("======================================================");
